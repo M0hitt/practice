@@ -1,0 +1,153 @@
+1. Write a program containing a possible exception. Use a try block to throw it and a catch block
+to handle it promptly.
+ans-
+package filhandling;
+
+import java.util.Scanner;
+
+public class question1 {
+
+	public static void main(String[] args) {
+		try {
+			System.out.println("enter a number to check weather 59 is divisible by it or not:");
+			Scanner sc = new Scanner(System.in);
+			int num = sc.nextInt();
+			if(59%num == 0) {
+				System.out.println("divisible");
+			}
+			else {
+				System.out.println("not divisible");
+			}
+			
+		} catch (ArithmeticException e) {
+			System.out.println("divide by zero error");
+		}
+
+	}
+
+}
+
+2. Write a program that illustrates the application of multiple catch statements.
+ans-
+package filhandling;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class question1 {
+
+	public static void main(String[] args) {
+		try {
+			System.out.println("enter a number to check weather 59 is divisible by it or not:");
+			Scanner sc = new Scanner(System.in);
+			int num = sc.nextInt();
+			if(59%num == 0) {
+				System.out.println("divisible");
+			}
+			else {
+				System.out.println("not divisible");
+			}
+			
+		} catch (ArithmeticException e) {
+			System.out.println("divide by zero error");
+		}
+		catch(InputMismatchException e) {
+			System.out.println("enter a valid number");
+		}
+
+	}
+
+}
+
+3. Write a program that demonstrates how certain exception types are not allowed to be thrown.
+ans-
+package filhandling;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class question1 {
+
+	public static void main(String[] args) throws IOException {
+
+		int num = 28;
+		int result = num/0;
+	}
+
+}
+
+package filhandling;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class question1 {
+
+	public static void main(String[] args) throws RuntimeException{
+		FileReader fr = new FileReader("fool.txt");
+		BufferedReader br = new BufferedReader(fr);
+		String str = br.readLine();
+		System.out.println(str);
+	}
+
+}
+
+in the above two program when we throws an unchecked exception the compiler gives an error and when we give an checked exception prgorams doesnt gives any error at the time of compilation
+runtimeexception in an uncheckedexception
+wether ioexception is an checked exception.
+
+4. Write a program to demonstrate the concept of re-throwing an exception.
+ans-
+package filhandling;
+
+public class rethrows {
+
+	public static void main(String[] args) {
+		try {
+			int[] arr = new int[10];
+			for(int i = 0;i < arr.length;i++) {
+				arr[i] = arr[i+1];
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+			throw e;
+			
+		}
+
+	}
+
+}
+
+5. You will be given two integers and as input, you have to compute x/y. If x and y are not 32 bit
+signed integers or if y is zero, exception will occur and you have to report it. Read sample
+Input/Output to know what to report in case of exceptions. 
+ans-
+package filhandling;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class question1 {
+
+	public static void main(String[] args) {
+		try {
+			System.out.println("ENTER THE VALUE OF X:");
+			Scanner sc = new Scanner(System.in);
+			int x = sc.nextInt();
+			System.out.println("ENTER THE VALUE OF Y:");
+			int y = sc.nextInt();
+			int ans = x/y;
+			System.out.println(ans);
+		} catch (ArithmeticException e) {
+			System.out.println(e);
+		}
+		catch(InputMismatchException e) {
+			System.out.println(e);
+		}
+
+	}
+
+}
